@@ -1,0 +1,32 @@
+{% extends "mangxahoi/base.html" %}
+
+{% block title %} Edit Comment Page {% endblock %}
+
+
+{% block content %}
+
+{% if user.is_authenticated %}
+    {% if comment.name.id == user.id %}
+        <h1>Edit Comment</h1>
+        <br><br>
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-secondary">Chỉnh sửa</button>
+    {% else %}
+        <div class="p-3 mb-2 bg-warning text-dark">
+            <strong>ERROR</strong>
+        </div>
+    {% endif %}
+        
+{% else %}
+    <div class="p-3 mb-2 bg-warning text-dark">
+        <strong>ERROR</strong>
+    </div>
+
+{% endif %}
+
+
+
+{% endblock %}

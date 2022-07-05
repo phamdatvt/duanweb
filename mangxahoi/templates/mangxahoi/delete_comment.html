@@ -1,0 +1,35 @@
+{% extends "mangxahoi/base.html" %}
+
+{% block title %} Delete Comment Page {% endblock %}
+
+
+{% block content %}
+
+
+
+{% if user.is_authenticated %}
+     {% if comment.name.id == user.id %}
+        <h1>Delete Comment</h1>
+        <br>
+        <h4>Delete: {{comment.body}}</h4>
+        <br><br>
+
+        <form method="POST">
+            {% csrf_token %}
+            <strong>Bạn chắc chắn chưa?</strong><br><br>
+            <button type="submit" class="btn btn-secondary">Xóa</button>   
+    {% else %}
+        <div class="p-3 mb-2 bg-warning text-dark">
+            <strong>ERROR</strong>
+        </div>
+    {% endif %}
+{% else %}
+    <div class="p-3 mb-2 bg-warning text-dark">
+        <strong>ERROR</strong>
+    </div>
+
+{% endif %}
+
+
+
+{% endblock %}

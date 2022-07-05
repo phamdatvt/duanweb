@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+}
+  /*-- Phan tai lieu --*/
+#main-doc{
+    margin-left: 25%;
+    padding: 30px;
+    background-color: #ffffff;
+}
+header{
+    font-size: 200%;
+    font-weight: 800;
+    color: #00887a;
+}
+  
+  
+  /*-- Phan nav bar --*/
+#navbar{
+    position: fixed;
+    top:0;
+    height:100%;
+    width:25%;
+    background-color: #77a6f7;
+    overflow: scroll;
+    margin-top:35px;
+}
+#navbar h1{
+      background-color: #ffffff;
+      color: #00887a;
+}
+#header-navbar{
+    position: fixed;
+    top:0;
+    background-color: #ffffff;
+    color: black;
+    width: 25%;
+}
+#header-navbar a{
+    text-decoration: none;
+}
+#header-navbar img{
+    transform: translate(0,3px);
+}
+  #navbar ul{
+    list-style: none;
+    padding:5px;
+}
+  
+.nav-link{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 23px;
+    display: block;
+}
+  .nav-link:hover{
+    background-color: #d3e3fc;
+    color: black;
+    font-weight: 800;
+}
+ 
+
+  
+  

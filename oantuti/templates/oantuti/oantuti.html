@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <title>Just For Fun</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'oantuti/css/oantuti.css' %}">
+</head>
+
+<body>
+    <div class="row">
+        <h2>Lucky Game</h2>
+        <button class="button_Bua" onclick=bua_lucky()>Bua</button>
+        <button class="button_Bao" onclick=bao_lucky()>Bao</button>
+        <button class="button_Keo" onclick=keo_lucky()>Keo</button>
+        <p>
+        <img id="demo_buabaokeo" src="{% static 'oantuti/images/buabaokeo.png' %}">
+        <img id="demo_buabaokeo1" src="{% static 'oantuti/images/buabaokeo.png' %}">
+        </p>
+        <hr>
+        <div id="kq">asd</div>
+    </div>
+
+
+<script type="text/javascript">
+
+DJANGO_STATIC_URL = '{{ STATIC_URL }}';
+
+//----------------------------------------BUA---------------------------------------------------//
+function bua_lucky(){
+    document.getElementById("demo_buabaokeo").src= "{% static 'oantuti/images/bua.jpg' %}";
+    document.getElementById("demo_buabaokeo").style.transform = "scale(1.2) translate(150px,70px) rotate(50deg)";
+    document.getElementById("demo_buabaokeo").style.transition = "transform 2s linear 0.5s";
+    a = Math.floor(Math.random() * 21);
+    switch(a){
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+            document.getElementById("demo_buabaokeo1").src= "{% static 'oantuti/images/bua.jpg' %}";
+            document.getElementById("kq").innerHTML = "Draw";
+            document.getElementById("kq").style.visibility = "visible";
+            document.getElementById("kq").style.transform ="scale(4) translate(137px,30px)";
+            document.getElementById("kq").style.transition = "transform 1s ease-in 6s, visibility 1s linear 6s";
+            break;
+        case 7:
+        case 8:
+        case 9:
+        case 10:
+        case 11:
+        case 12:
+        case 13:
+            document.getElementById("demo_buabaokeo1").src= "{% static 'oantuti/images/bao.jpg' %}";
+            document.getElementById("kq").innerHTML = "Lose";
+            document.getElementById("kq").style.visibility = "visible";
+            document.getElementById("kq").style.transform ="scale(4) translate(137px,30px)";
+            document.getElementById("kq").style.transition = "transform 1s ease-in 6s, visibility 1s linear 6s";
+            break;
+        case 14:
+        case 15:
+        case 16:
+        case 17:
+        case 18:
+        case 19:
+        case 20:
+            document.getElementById("demo_buabaokeo1").src= "{% static 'oantuti/images/keo.jpg' %}";
+            document.getElementById("kq").innerHTML = "Win";
+            document.getElementById("kq").style.visibility = "visible";
+            document.getElementById("kq").style.transform ="scale(4) translate(137px,30px)";
+            document.getElementById("kq").style.transition = "transform 1s ease-in 6s, visibility 1s linear 6s";
+            break;
+        default:
+            document.getElementById("demo_buabaokeo1").src= "{% static 'oantuti/images/buabaokeo.png' %}";
+    }
+    document.getElementById("demo_buabaokeo1").style.visibility="visible"
+    document.getElementById("demo_buabaokeo1").style.transform = "scale(1.2) translate(250px,70px) rotate(-50deg)";
+    document.getElementById("demo_buabaokeo1").style.transition = "transform 2s 5s, visibility 2s 5s"; 
+    
+}
+
+//----------------------------------------BAO---------------------------------------------------//
+function bao_lucky(){
+    document.getElementById("demo_buabaokeo").src= "{% static 'oantuti/images/bao.jpg' %}";
+    document.getElementById("demo_buabaokeo").style.transform = "scale(1.2) translate(150px,70px) rotate(50deg)";
+    document.getElementById("demo_buabaokeo").style.transition = "transform 2s linear 0.5s";
+    a = Math.floor(Math.random() * 21);
+    switch(a){
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+            document.getElementById("demo_buabaokeo1").src= "{% static 'oantuti/images/bua.jpg' %}";
+            document.getElementById("kq").innerHTML = "Win";
+            document.getElementById("kq").style.visibility = "visible";
+            document.getElementById("kq").style.transform ="scale(4) translate(137px,30px)";
+            document.getElementById("kq").style.transition = "transform 1s ease-in 6s, visibility 1s linear 6s";
+            break;
+        case 7:
+        case 8:
+        case 9:
+        case 10:
+        case 11:
+        case 12:
+        case 13:
+            document.getElementById("demo_buabaokeo1").src= "{% static 'oantuti/images/bao.jpg' %}";
+            document.getElementById("kq").innerHTML = "Draw";
+            document.getElementById("kq").style.visibility = "visible";
+            document.getElementById("kq").style.transform ="scale(4) translate(137px,30px)";
+            document.getElementById("kq").style.transition = "transform 1s ease-in 6s, visibility 1s linear 6s";
+            break;
+        case 14:
+        case 15:
+        case 16:
+        case 17:
+        case 18:
+        case 19:
+        case 20:
+            document.getElementById("demo_buabaokeo1").src= "{% static 'oantuti/images/keo.jpg' %}";
+            document.getElementById("kq").innerHTML = "Lose";
+            document.getElementById("kq").style.visibility = "visible";
+            document.getElementById("kq").style.transform ="scale(4) translate(137px,30px)";
+            document.getElementById("kq").style.transition = "transform 1s ease-in 6s, visibility 1s linear 6s";
+            break;
+        default:
+            document.getElementById("demo_buabaokeo1").src= "{% static 'oantuti/images/buabaokeo.png' %}";
+    }
+    document.getElementById("demo_buabaokeo1").style.visibility="visible"
+    document.getElementById("demo_buabaokeo1").style.transform = "scale(1.2) translate(250px,70px) rotate(-50deg)";
+    document.getElementById("demo_buabaokeo1").style.transition = "transform 2s 5s, visibility 2s 5s";    
+}
+
+//----------------------------------------KEO---------------------------------------------------//
+function keo_lucky(){
+    document.getElementById("demo_buabaokeo").src= "{% static 'oantuti/images/keo.jpg' %}";
+    document.getElementById("demo_buabaokeo").style.transform = "scale(1.2) translate(150px,70px) rotate(50deg)";
+    document.getElementById("demo_buabaokeo").style.transition = "transform 2s linear 0.5s";
+    a = Math.floor(Math.random() * 21);
+    switch(a){
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+            document.getElementById("demo_buabaokeo1").src= "{% static 'oantuti/images/bua.jpg' %}";
+            document.getElementById("kq").innerHTML = "Lose";
+            document.getElementById("kq").style.visibility = "visible";
+            document.getElementById("kq").style.transform ="scale(4) translate(137px,30px)";
+            document.getElementById("kq").style.transition = "transform 1s ease-in 6s, visibility 1s linear 6s";
+            break;
+        case 7:
+        case 8:
+        case 9:
+        case 10:
+        case 11:
+        case 12:
+        case 13:
+            document.getElementById("demo_buabaokeo1").src= "{% static 'oantuti/images/bao.jpg' %}";
+            document.getElementById("kq").innerHTML = "Win";
+            document.getElementById("kq").style.visibility = "visible";
+            document.getElementById("kq").style.transform ="scale(4) translate(137px,30px)";
+            document.getElementById("kq").style.transition = "transform 1s ease-in 6s, visibility 1s linear 6s";
+            break;
+        case 14:
+        case 15:
+        case 16:
+        case 17:
+        case 18:
+        case 19:
+        case 20:
+            document.getElementById("demo_buabaokeo1").src= "{% static 'oantuti/images/keo.jpg' %}";
+            document.getElementById("kq").innerHTML = "Draw";
+            document.getElementById("kq").style.visibility = "visible";
+            document.getElementById("kq").style.transform ="scale(4) translate(137px,30px)";
+            document.getElementById("kq").style.transition = "transform 1s ease-in 6s, visibility 1s linear 6s";
+            break;
+        default:
+            document.getElementById("demo_buabaokeo1").src= "{% static 'oantuti/images/buabaokeo.png' %}";
+    }
+    document.getElementById("demo_buabaokeo1").style.visibility="visible"
+    document.getElementById("demo_buabaokeo1").style.transform = "scale(1.2) translate(250px,70px) rotate(-50deg)";
+    document.getElementById("demo_buabaokeo1").style.transition = "transform 2s 5s, visibility 2s 5s";    
+}
+
+
+
+</script>
+</body>
+
+</html>

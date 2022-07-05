@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>{{quiz.name}}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'appquiziq/testIQ.css' %}">
+</head>
+<body>
+
+<!-- Gioi thieu trac nghiem -->
+<div class="gioithieutracnghiem"> 
+  <h1 style="text-align:center;color:#00887a">Trắc nghiệm IQ</h1>
+  <p>Số câu: {{quiz.number_of_questions}}</p>
+  <p>Thời gian: {{quiz.time}} phút</p>
+  <p>{{quiz.name}}</p>
+  <p id="demo"></p>
+    
+  <a href="../" class="btn btn-secondary">Back</a> 
+</div>
+
+<!-- Dang nhap ten va so dien thoai de thuc hien bai thi -->
+<div class="dangnhapdethi">
+  <button id="start" type="button" onclick="start()">Bắt đầu làm bài</button>
+  <br>
+
+  <form id="f" style="display:none">
+  {% for x in quiz.question_set.all %}
+    {{forloop.counter}}. {{x.question_text}} <br>
+    {% with a=forloop.counter %}
+  
+    {% for choice in x.choice_set.all %}
+      <input id="{{choice.id}}" type="radio" name="{{quiz.name}}question{{a}}" value="{{choice.votes}}">
+      <label for="{{choice.id}}">{{choice.choice_text}}</label><br>    
+    {% endfor %}
+    <strong id="{{quiz.name}}ketqua{{a}}"></strong>
+    <p id="{{quiz.name}}giaidap{{a}}" style="display:none;box-shadow:0px 0px 3px 3px #dcdcdc;background:#f9f9f9;padding:10px;">{{x.giaidap|safe}}</p>
+    <br><hr><br>
+
+    {% endwith %}
+  {% endfor %} 
+  </form>
+  
+
+  <button type="button" id="nopbai" onclick="nopbai()" style="display:none">Nộp bài và kết thúc</button>
+  <strong id="demo1"></strong>
+  <button type="button" id="xemlaiketqua" onclick="xemlaiketqua()" style="display:none">Xem lại kết quả</button>
+</div>
+
+
+
+
+<script type="text/javascript">
+// bien tao timer dung de bat dau va tam dung
+var dengung = null;
+
+
+function start(){
+  document.getElementById('start').style.display= "none";
+  document.getElementById('f').style.display= "block";
+  document.getElementById('nopbai').style.display= "block";
+  
+  let thoigianthi = {{quiz.time}};
+  // Set the date we're counting down to
+  const countDownDate = new Date();
+  countDownDate.setMinutes(countDownDate.getMinutes()+thoigianthi);
+// Update the count down every 1 second
+  dengung = setInterval(function() {
+
+  // Get today's date and time
+  let now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(dengung);
+    document.getElementById("demo").innerHTML = "FULL TIME";
+    nopbai();
+  }
+}, 1000);
+}
+
+
+
+function nopbai(){
+  clearInterval(dengung); //ngung timer
+  let test = 0;
+  let ketqua = "";
+  let diem = 0;
+  let dethi="{{quiz.name}}";
+  let tongsocauhoi = "{{quiz.number_of_questions}}";
+  for (let i=1; i<=tongsocauhoi;i++){
+    let cauhoi = document.getElementsByName(dethi+"question"+i);
+    ketqua+=i+". ";
+    for (let j=0; j<cauhoi.length;j++){
+      if(cauhoi[j].checked){
+        if(cauhoi[j].value == "True"){
+          diem++;
+          ketqua += "Dung";
+          document.getElementById(dethi+'ketqua'+i).style.background= "rgba(0, 200, 0, 0.5)";
+        }
+        else{
+          ketqua += "Sai";
+          document.getElementById(dethi+'ketqua'+i).style.background= "rgba(200, 0, 0, 0.5)";
+        }
+      }
+      else{
+        test++;
+      }
+
+    }
+    if (test==cauhoi.length){
+      ketqua += "Chua tra loi";
+      document.getElementById(dethi+'ketqua'+i).style.background= "rgba(200, 0, 0, 0.5)";
+    }
+    test = 0;
+    document.getElementById(dethi+'ketqua'+i).innerHTML= ketqua;
+    document.getElementById(dethi+'ketqua'+i).style.display= "none";
+    ketqua = "";
+  }
+
+
+  document.getElementById('f').style.display= "none";
+  document.getElementById('nopbai').style.display= "none";
+  document.getElementById('demo').style.display= "none";
+  document.getElementById('xemlaiketqua').style.display= "block";
+  
+  
+  
+  let tyledung= (diem/tongsocauhoi*100).toFixed(2);
+  document.getElementById("demo1").innerHTML = "Điểm bài kiểm tra " + diem + " / " + tongsocauhoi + " điểm, " +
+  "(" + tyledung+"%" + ")" + "<br><br>" +
+  "Thời gian thực hiện: " + document.getElementById("demo").innerHTML;  
+}
+
+
+
+
+function xemlaiketqua(){
+  let el = document.getElementById('f').elements;
+  for (let i = 0, len = el.length; i < len; ++i) {
+    el[i].disabled = true;
+  }
+  document.getElementById('f').style.display= "block";
+  document.getElementById('xemlaiketqua').style.display= "none";
+
+  let dethi="{{quiz.name}}";
+  let tongsocauhoi = "{{quiz.number_of_questions}}";
+  for (i=1;i<=tongsocauhoi;i++){
+    document.getElementById(dethi+'ketqua'+i).style.display= "block";
+    document.getElementById(dethi+'giaidap'+i).style.display= "block";
+  }  
+}
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+  
+

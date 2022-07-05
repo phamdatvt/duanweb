@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+}
+  /*-- Phan gioi thieu trac nghiem --*/
+.gioithieutracnghiem{
+    position: fixed;
+    top: 0;
+    left: 0;
+    border: 1px solid black;
+    width: 27%;
+    padding: 15px;
+    color: #77a6f7;
+    margin: 1%;
+}
+
+  /*-- Phan dang nhap ho ten de thi trac nghiem --*/
+.dangnhapdethi{
+    border: 1px solid black;
+    width: 67%;
+    padding: 15px;
+    margin-left: 30%;
+}
+
+#start, #submit, #nopbai, #xemlaiketqua{
+    padding: 10px;
+    background-color: #77a6f7;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 110%;
+    margin-left: 50%;
+    margin-top: 7px;
+    transform: translateX(-50%);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+
+#start:hover, #nopbai:hover, #xemlaiketqua:hover{
+    box-shadow: 1px 1px 3px 1px rgb(152, 152, 152);
+}

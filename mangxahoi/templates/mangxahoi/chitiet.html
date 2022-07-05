@@ -1,0 +1,120 @@
+{% extends "mangxahoi/base.html" %}
+
+{% block title %} {{ post.title }} {% endblock %}
+{% load static %}
+
+{% block content %}
+
+
+<h1>{{ post.title }}</h1>
+<small>
+    By: 
+    {{post.author.last_name}}
+    {{post.author.first_name}} 
+
+    {% if user.is_authenticated %}
+        {% if post.author.id == user.id %}
+            -
+            <a href="{% url 'mangxahoi:update_post' post.pk %}">(Chỉnh sửa)</a>
+            <a href="{% url 'mangxahoi:delete_post' post.pk %}">(Xóa)</a>
+        {% endif %}
+    {% endif %}
+
+    <br>
+    {{ post.post_date }} 
+</small>
+<br>
+<hr>
+<br>
+{{ post.body|safe }}
+
+<br><br>
+<a href="{% url 'mangxahoi:mangxahoi' %}" class="btn btn-secondary">Back</a>
+
+<br><br>
+<hr>
+
+
+<form action="{% url 'mangxahoi:like_post' post.pk %}" method="POST">
+    {% csrf_token %}
+
+    {% if user.is_authenticated %}
+        {% if user in post.likes.all %}
+            <button type="submit", name="post_id", value="{{post.id}}", class="btn btn-danger btn-sm">Unlike</button>
+        {% else %}
+            <button type="submit", name="post_id", value="{{post.id}}", class="btn btn-primary btn-sm">Like</button>
+        {% endif %}
+    
+    {% else %}
+        <small><a href="{% url 'login' %}">Đăng nhập</a> để like</small>
+    {% endif %}
+
+    - {{ post.total_likes}} Like    
+</form>
+
+<hr>
+
+<h2>Comment...</h2>
+
+{% if user.is_authenticated %}
+    {% if not post.comments.all %}
+        The first person comment, <a href="{% url 'mangxahoi:add_comment' post.pk %}">add on...</a>
+    {% else %}
+        <mark><a href="{% url 'mangxahoi:add_comment' post.pk %}" class="text-decoration-none">Add comment</a></mark> <br><br>
+    {% endif %}
+{% else %}
+    {% if not post.comments.all %}
+        The first person comment, <a href="{% url 'login' %}">add on...</a>
+    {% else %}
+        <mark><a href="{% url 'login' %}" class="text-decoration-none">Add comment</a></mark> <br><br>
+    {% endif %}
+{% endif %}  
+
+{% for comment in post.comments.all %}
+    <div class="d-flex">
+        <div class="flex-shrink-0">
+            <img src="{% static 'mangxahoi/images/avatar.png' %}" alt="avatar" width ="50vw" >
+        </div>
+
+        <div class="flex-grow-1 ms-3">
+            <strong>{{comment.name}}</strong>   - <i>({{comment.cmt_date}})</i>
+            <br>
+            <p style="box-shadow:0px 0px 2px 1px #dcdcdc;background:#f9f9f9;">
+                {{comment.body|safe}}
+
+                <form action="{% url 'mangxahoi:like_comment' comment.pk %}" method="POST">
+                    {% csrf_token %}
+
+                    {% if user.is_authenticated %}
+                        {% if user in comment.cmt_likes.all %}
+                            <button type="submit", name="comment_id", value="{{comment.id}}", class="btn btn-danger btn-sm">Unlike</button>
+                        {% else %}
+                            <button type="submit", name="comment_id", value="{{comment.id}}", class="btn btn-primary btn-sm">Like</button>
+                        {% endif %}
+                    
+                    {% else %}
+                        <small><a href="{% url 'login' %}">Đăng nhập</a> để like</small>
+                    {% endif %}
+
+                    - {{ comment.cmt_likes.count }} Like    
+                </form>
+                
+
+                {% if user.is_authenticated %}
+                    {% if comment.name.id == user.id %}
+                        <a href="{% url 'mangxahoi:update_comment' comment.pk %}">(Chỉnh sửa)</a>
+                        <a href="{% url 'mangxahoi:delete_comment' comment.pk %}">(Xóa)</a>
+                    {% endif %}
+                {% endif %}
+                
+
+            </p>
+            <br><br>
+        </div>
+
+    </div>
+{% endfor %}
+
+
+
+{% endblock %}

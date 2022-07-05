@@ -1,0 +1,84 @@
+*{
+    box-sizing: border-box;
+}
+
+/* GIOI THIEU */
+.gioithieu{
+    width: 100%;
+}
+
+.baphan{
+    float: left;
+    width: 30%;
+    background-color: #77a6f7;
+    height: 130px;
+    color: #ffffff;
+}
+
+.bayphan{
+    float: left;
+    width: 70%;
+    background-color: #77a6f7;
+    height: 130px;
+    color: #ffffff;
+}
+
+
+
+/* STUDY */
+
+
+
+
+/* TEST */
+
+
+
+
+
+/* ______TAI SU DUNG_______ */
+.tieudenentrang{
+    color: #00887A;
+    font-weight: 800;
+}
+
+.test{
+    padding: 10px;
+    background-color: #FFFFFF;
+}
+
+.test-all{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #d3e3fc;
+}
+
+.test-free{
+    margin: 12px;
+    box-shadow: 0px 0px 3px 3px #9d9d9d;
+}
+
+.select{
+    text-decoration: none;
+}
+
+.test-free img{
+    transition: 0.5s;
+}
+.test-free span{
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    
+}
+.test-free:hover img{
+    filter: blur(4px);
+    border-radius: 50%;
+}
+.test-free:hover span{
+    text-transform: uppercase;
+    bottom: 50%; 
+}
+
+/* ________________________ */

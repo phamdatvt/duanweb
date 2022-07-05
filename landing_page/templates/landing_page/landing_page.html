@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <title>Page Title</title>
+    
+    <script src="https://kit.fontawesome.com/f0b5a76800.js" crossorigin="anonymous"></script>
+    <!--link nhung font answer-->
+    <link rel="stylesheet" type="text/css" href="{% static 'landing_page/css/styles_landing_page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'landing_page/css/grid_landing_page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'landing_page/css/queries_landing_page.css' %}">
+</head>
+
+<body>
+    <header id='home'>
+        <div class="nav-bar">
+            <a href="#testimonials">How Clients Think</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <nav class="sticky">
+            <a href="#home"><img class="logo" src="{% static 'landing_page/images/logo.png' %}" alt="logo"></a>
+            <ul class="main-nav">
+                <!-- unordered list -->
+                <li><a href="#testimonials">How Clients Think</a></li>
+                <!-- list item -->
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <i class="fas fa-bars mobile-nav-icon"></i>
+        </nav>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="heading-main-box">
+                <h1>
+                    We will are champion<br>
+                    We is one<br>
+                    Never give up<br>
+                </h1>
+                <a href="#contact" class="btn">Tell me</a>
+                <a href="#about" class="btn">Join</a>
+            </div>
+        </div>
+    </header>
+    <section class="about-section" id='about'>
+        <div class="row">
+            <h2>About Us</h2>
+            <p class="p-long">
+                Messi go to PSG. This is history with France. PSG with Messi, Neymar, Mpape will win to champion league.
+                This 2021, UEFA is PSG.
+            </p>
+        </div>
+        <div class="row">
+            <div class="col span-1-of-4 about-picture">
+                <img src="{% static 'landing_page/images/activities1.jpeg' %}" alt="activities1">
+                <p class="pictute-title">
+                    Team Working
+                </p>
+            </div>
+            <div class="col span-1-of-4 about-picture">
+                <img src="{% static 'landing_page/images/activities2.jpeg' %}" alt="activities2">
+                <p class="pictute-title">
+                    Funny Class
+                </p>
+            </div>
+            <div class="col span-1-of-4 about-picture">
+                <img src="{% static 'landing_page/images/activities3.jpeg' %}" alt="activities3">
+                <p class="pictute-title">
+                    Be Confident
+                </p>
+            </div>
+            <div class="col span-1-of-4 about-picture">
+                <img src="{% static 'landing_page/images/activities4.jpeg' %}" alt="activities4">
+                <p class="pictute-title">
+                    All Our Friends
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="products-section" id='products'>
+        <h2>So tay F04</h2>
+        <div class="row">
+            <div class="col span-1-of-3">
+                <div class="product-box">
+                    <h3>Goi vip tuan</h3>
+                    <p class="product-price">10$ <span>/ week</span></p>
+                    <ul>
+                        <li><i class="fas fa-check small-icon"></i>Tang the Vietnamlegend</li>
+                        <li><i class="fas fa-check small-icon"></i>Tang the +8 mua thuong</li>
+                    </ul>
+                    <a href="#" class="btn">Buy now</a>
+                </div>
+            </div>
+            <div class="col span-1-of-3">
+                <div class="product-box">
+                    <h3>Goi vip thang</h3>
+                    <p class="product-price">20$ <span>/ month</span></p>
+                    <ul>
+                        <li><i class="fas fa-check small-icon"></i>Tang the Vietnamlegend</li>
+                        <li><i class="fas fa-check small-icon"></i>Tang the +8 mua hot</li>
+                    </ul>
+                    <a href="#" class="btn">Buy now</a>
+                </div>
+            </div>
+            <div class="col span-1-of-3">
+                <div class="product-box">
+                    <h3>Goi vip nam</h3>
+                    <p class="product-price">50$ <span>/ year</span></p>
+                    <ul>
+                        <li><i class="fas fa-check small-icon"></i>Svip suot doi</li>
+                        <li><i class="fas fa-check small-icon"></i>Tang the ICON+5</li>
+                    </ul>
+                    <a href="#" class="btn">Buy now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonials-section" id='testimonials'>
+        <h2>Testimonial</h2>
+        <div class="row">
+            <div class="col span-1-of-3">
+                <blockquote>
+                    Toi nam nay 50 tuoi ma toi chua thay truong hop nao nhu vay. Phai toi, toi dam cho may nhat.
+                    <cite>
+                        <img src="{% static 'landing_page/images/person5.jpeg' %}" alt="person5">Can bo 50 tuoi
+                    </cite>
+                </blockquote>
+            </div>
+            <div class="col span-1-of-3">
+                <blockquote>
+                    Con quai vat tuyen giua, ke dieu khien trai bong bang ma thuat. Dung vay, do chinh la Lukaku.
+                    <cite>
+                        <img src="{% static 'landing_page/images/person3.jpeg' %}" alt="person3">Vua bong da Pele
+                    </cite>
+                </blockquote>
+            </div>
+            <div class="col span-1-of-3">
+                <blockquote>
+                    Khong con nghi ngo gi nua, anh ay la cau thu xuat sac nhat the gioi. Khi moi gia nhap doi bong, toi
+                    den san som 1 tieng de lam quen. That bat ngo, khi den do, toi da thay Ronaldo roi. Anh ay dang ngoi
+                    xem cac video ma Lingar thi dau.
+                    <cite>
+                        <img src="{% static 'landing_page/images/person4.jpeg' %}" alt="person4">Edison Cavani
+                    </cite>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+    <section class="sponsors-section" id='sponsors'>
+        <h2>Sponsors</h2>
+        <div class="row">
+            <ul class="sponsors-showcase">
+                <li>
+                    <figure>
+                        <img class="doibong" src="{% static 'landing_page/images/barcelona_logo.png' %}" alt="barcelona">
+                        <figcaption>
+                            Barcelona
+                        </figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img class="doibong" src="{% static 'landing_page/images/mctcity_logo.png' %}" alt="manchester city">
+                        <figcaption>
+                            Manchester City
+                        </figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img class="doibong" src="{% static 'landing_page/images/tottenham_logo.png' %}" alt="tottenham hotspur">
+                        <figcaption>
+                            Tottenham Hotspur
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+            <ul class="sponsors-showcase">
+                <li>
+                    <figure>
+                        <img class="doibong" src="{% static 'landing_page/images/real_logo.png' %}" alt="real marid">
+                        <figcaption>
+                            Real Marid
+                        </figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img class="doibong" src="{% static 'landing_page/images/juventus_logo.png' %}" alt="Juventus">
+                        <figcaption>
+                            Juventus
+                        </figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img class="doibong" src="{% static 'landing_page/images/mctunited_logo.png' %}" alt="manchester united">
+                        <figcaption>
+                            Manchester United
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="contact-section" id='contact'>
+        <div class="row">
+            <div class="col span-1-of-3">
+                <ul class="information">
+                    <li><i class="fas fa-map-marker-alt"></i>Address: 12NguyenAnNinh, TPVungTau</li>
+                    <li><i class="far fa-envelope"></i>Email: dth1617phamchidat12a6@gmail.com</li>
+                    <li><i class="fas fa-phone-square-alt"></i>Phone: 0921312341</li>
+                </ul>
+                <ul class="social">
+                    <li><i class="fab fa-facebook"></i></li>
+                    <li><i class="fab fa-twitter-square"></i></li>
+                    <li><i class="fab fa-instagram"></i></li>
+                    <li><i class="fab fa-google"></i></li>
+                </ul>
+            </div>
+            <div class="col span-2-of-3">
+                <form>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>Name</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" placeholder="Your Name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>Email</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="email" placeholder="Your Email">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>Message</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <textarea placeholder="Your Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <input type="submit" class="btn" value="Send me">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>
+            Copyright &copy; 2021 by PHAMDAT
+        </p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="{% static 'landing_page/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'landing_page/js/scripts.js' %}"></script>
+</body>
+
+
+</html>

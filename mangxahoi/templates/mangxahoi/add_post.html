@@ -1,0 +1,28 @@
+{% extends "mangxahoi/base.html" %}
+
+{% block title %} Add Post Page {% endblock %}
+
+
+{% block content %}
+
+
+
+{% if user.is_authenticated %}
+    <h1>Add Post</h1>
+    <br><br>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-secondary">Post</button>
+
+{% else %}
+    <div class="p-3 mb-2 bg-warning text-dark">
+        <strong>ERROR</strong>
+    </div>
+
+{% endif %}
+
+
+
+{% endblock %}

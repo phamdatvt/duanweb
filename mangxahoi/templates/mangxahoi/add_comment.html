@@ -1,0 +1,18 @@
+{% extends "mangxahoi/base.html" %}
+
+{% block title %} Comment in {{post.title}} {% endblock %}
+
+
+{% block content %}
+
+    <h1>Add Comment</h1>
+    <br><br>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-secondary">Add Comment</button>
+
+<input type=button value="Back" onClick="javascript:history.go(-1);" class="btn btn-secondary">
+
+{% endblock %}

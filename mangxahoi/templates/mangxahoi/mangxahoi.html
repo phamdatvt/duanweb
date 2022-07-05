@@ -1,0 +1,38 @@
+{% extends "mangxahoi/base.html" %}
+
+
+
+
+{% block content %}
+
+
+<h1>Post</h1>
+
+<ul>
+{% for comment in object_list %}
+{% endfor %}
+{% for post in object_list %}
+    <li>
+        <a href="{% url 'mangxahoi:chitiet' post.pk %}">{{ post.title|truncatewords:10 }}</a> - 
+        {{ post.author }} - 
+        {{ post.author.last_name }}{{ post.author.first_name }} -
+        {{ post.post_date }}
+
+        {% if user.is_authenticated %}
+            {% if post.author.id == user.id %}
+                <small>
+                    <a href="{% url 'mangxahoi:update_post' post.pk %}">(Chỉnh sửa)</a>
+                    <a href="{% url 'mangxahoi:delete_post' post.pk %}">(Xóa)</a>
+                </small>
+            {% endif %}
+        {% endif %}
+
+
+        <br>
+        {{ post.body|truncatewords:20|safe }}
+    </li>
+{% endfor %}
+</ul>
+
+<a href="../" class="btn btn-secondary">Back</a>
+{% endblock %}

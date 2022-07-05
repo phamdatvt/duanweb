@@ -1,0 +1,298 @@
+/* Big tablet to 1200px; */
+@media only screen  and (max-width:1200px){
+    html{
+        font-size: 16px;
+    }
+
+    /*------------header-----------*/
+    .heading-main-box{
+        transform: translate(-35%,-55%);
+    }
+    .logo{
+        width: 300px;
+    }
+    .main-nav{
+        margin-top: 45px;
+        margin-right: 20px;
+    }
+    .main-nav li{
+        margin-right: 20px;
+    }
+
+    /*------------about-----------*/
+    /*------------product-----------*/
+    /*------------testional-----------*/
+    /*------------sponsor-----------*/
+    /*------------contact-----------*/
+}
+ 
+/* Small tablet to big tablet from 768x to 1023px */
+@media only screen and (max-width:1023px){
+    .btn{
+        width: 190px;
+    }
+
+    /*------------header-----------*/
+    .logo{
+        width: 250px;
+        margin-left: 10px;
+    }
+    .main-nav{
+        margin-top: 25px;
+        margin-right: 8px;
+    }
+    .main-nav li{
+        margin-right: 10px;
+    }
+    .heading-main-box{
+        transform: translate(-25%,-55%);
+    }
+
+    /*------------about-----------*/
+
+
+
+    /*------------product-----------*/
+    .product-box{
+        height: 300px;
+    }
+    .product-price{
+        font-size: 25px;
+    }
+    .products-section h2 {
+        margin-bottom: 50px;
+    }
+
+    /*------------testional-----------*/
+    blockquote{
+        font-size: 15px;
+    }
+
+    /*------------sponsor-----------*/
+    .doibong{
+        width: 100px;
+    }
+
+    /*------------contact-----------*/
+    form .row{
+        font-size: 10px;
+    }
+    input[type=text], input[type=email], textarea{
+        margin-left: 15px;
+        height: 30px;
+    }
+    textarea{
+        height: 60px;
+    }
+    input[type=submit]{
+        width: 50%;
+        height: 50%;
+        margin-top: 0px;
+    }
+    .social{
+        margin-left: 1px;
+    }
+}
+ 
+/* Small phones to small tablets 558-749 */
+@media only screen and (max-width: 767px){
+    .col{
+        width: 100%;
+    }
+
+    /*------------header-----------*/
+    .main-nav{
+        display: none;
+    }
+    .mobile-nav-icon{
+        visibility: visible;
+        right: 40px;
+    }
+    .logo{
+        width: 400px;
+        margin-left: 20px;
+    }
+    .heading-main-box{
+        font-size: 10px;
+        letter-spacing: 0px;
+        margin-left: 80px;
+    }
+    .heading-main-box .btn{
+        width: 15%;
+        font-size: 15px;
+    }
+    
+    /*------------about-----------*/
+    .about-picture img{
+        width: 350px;
+        margin-bottom: 10px;
+    }
+    .about-picture{
+        text-align: center;
+    }
+    .pictute-title{
+        font-size: 150%;
+        margin-left: 20px;
+    }
+    .about-section .p-long{
+        font-size: 90%;
+    }
+
+    /*------------product-----------*/
+    .product-box{
+        width: 70%;
+        margin-left: 20%;
+    }
+
+    /*------------testional-----------*/
+    cite{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        margin-left: 40px;
+    }
+
+    /*------------sponsor-----------*/
+
+
+    /*------------contact-----------*/
+    .information{
+        text-align: center;
+    }
+    .social{
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    form{
+        text-align: center;
+        margin-left: 10%;
+        width: 60%;
+        margin-left: 20%;
+    }
+}
+ 
+
+/* 463--558*/
+@media only screen and (max-width: 575px){
+    .logo{
+        margin-left: 0px;
+    }
+    .mobile-nav-icon{
+        right: 10px;
+    }
+}
+
+
+
+
+/* Small phones from 0 to 480px; ...mobile-455*/
+@media only screen and (max-width: 480px){
+    html{
+        font-size: 12px;
+    }
+
+    /*------------header-----------*/
+    .logo{
+        width: 80%;
+        margin-left: 0%;
+    }
+    .mobile-nav-icon{
+        font-size: 300%;
+        right: 5px;
+        top: 60px;
+    }
+    h1{
+        letter-spacing: 3px;
+        font-size: 250%;
+        margin-left: 5%;
+    }
+    .heading-main-box .btn{
+        display: block;
+        margin-left: 10%;
+        margin-bottom: 20px;
+        width: 150px;
+    }
+
+    /*------------about-----------*/
+    .about-picture img{
+        width: 70%;
+    }
+    .pictute-title{
+        font-size: 100%;
+        margin-left: 5px;
+    }
+
+    /*------------product-----------*/
+    .product-box{
+        height: 250px;
+        margin-bottom: 10px;
+    }
+
+    /*------------testional-----------*/
+    blockquote{
+        font-size: 12px;
+    }
+
+    /*------------sponsor-----------*/
+    figcaption{
+        visibility: hidden;
+    }
+
+    /*------------contact-----------*/
+    form{
+        width: 80%;
+        margin-left: 10%;
+    }
+    
+}
+
+/* 445--455*/
+@media only screen and (max-width: 472px){
+    .mobile-nav-icon{
+        top:60px;
+        font-size: 250%;
+    }
+}
+
+/*  425--445*/
+@media only screen and (max-width: 462px){
+    .mobile-nav-icon{
+        top:55px;
+    }
+}
+
+/*  411--425*/
+@media only screen and (max-width: 442px){
+    .mobile-nav-icon{
+        top:50px;
+    }
+}
+
+/*  405--411*/
+@media only screen and (max-width: 428px){
+    .mobile-nav-icon{
+        top: 48px;
+    }
+}
+
+/*   393--405*/
+@media only screen and (max-width: 422px){
+    .mobile-nav-icon{
+        top: 45px;
+    }
+}
+
+
+/*   380--393*/
+@media only screen and (max-width: 410px){
+    .mobile-nav-icon{
+        top: 42px;
+    }
+}
+
+/*   --380*/
+@media only screen and (max-width: 397px){
+    .mobile-nav-icon{
+        top: 39px;
+    }
+}
